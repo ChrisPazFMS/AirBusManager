@@ -9,6 +9,7 @@ public class Methode {
 
 	/**
 	 * Arrete le programme Le programme quand on ecrit STOP.
+	 * 
 	 * @param stop ecrire stop
 	 * @return Boolean true pour quitter le programme OU false pour continuer
 	 */
@@ -29,10 +30,9 @@ public class Methode {
 
 	/**
 	 * Pour parcourir uniquement un tableau a 2 dimensions Veuillez mettre en
-	 * deuxieme parametre "null"
-	 * <br>
-	 * Pour rechercher une chaine de caracteres dans le tableau a
-	 * 2 dimensions, veuillez mettre en deuxieme parametre la valeur de la chaine de caracteres.
+	 * deuxieme parametre "null" <br>
+	 * Pour rechercher une chaine de caracteres dans le tableau a 2 dimensions,
+	 * veuillez mettre en deuxieme parametre la valeur de la chaine de caracteres.
 	 * 
 	 * @param airBusPlane = Array
 	 * @param search      = "null" OU String
@@ -73,7 +73,6 @@ public class Methode {
 
 				System.out.println(Constant.YELLOW + "Aucune correspondance avec : " + Constant.RED + search
 						+ Constant.YELLOW + "\nJ'en suis vraiment navré!");
-				System.out.println("COUNT = " + counte);
 
 				break;
 
@@ -98,6 +97,7 @@ public class Methode {
 
 	/**
 	 * NOT FUNCTIONAL
+	 * 
 	 * @param airBusPlane prend un tableau
 	 * @return string
 	 */

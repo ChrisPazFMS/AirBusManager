@@ -2,7 +2,7 @@
 AirBusManager/bin/
 
 # ignore settings
-.settings
+AirBusManager/.settings/
 
 # ignore metadata
-.metadata
+AirBusManager/.metadata/

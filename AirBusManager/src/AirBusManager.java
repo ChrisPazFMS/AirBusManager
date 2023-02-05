@@ -66,6 +66,9 @@ public class AirBusManager {
 			} else if (!strgScanner) {
 				System.out.println(start ? "Veuillez saisir un chiffre, s'il vous plaît ! \n" : "");
 
+			}else if (Integer.parseInt(menuChoice) == 3) {
+				System.out.println("3");
+
 			} else if (Integer.parseInt(menuChoice) > 5) {
 				System.out.println("Veuillez saisir un nombre entre 1 et 5 ! \n");
 			}
