@@ -1,10 +1,10 @@
 import java.util.HashMap;
 import java.util.Scanner;
+
 /**
  * 
  * @author PazmanyC
  * @since V1 date 03/02/2023
- * @
  *
  */
 public class AirBusManager {
@@ -25,117 +25,53 @@ public class AirBusManager {
 		String[] A380 = { "A380", "PLM_AIRBUS_STOPPED", "Passenger" };
 		AirBusPlane.put(4, A380);
 
-		System.out.println(
-				"Bienvenue dans l'application de gestion du cycle de vie d'avions AIRBUS \nFaite votre choix dans le menu, saisissez le chiffre correspondant : \n \n");
-		System.out.println(
-				"1 : Afficher tous les avions \n2 : Afficher tous les avions contenant un mot clé dans le programme \n3 : Ajouter ou supprimer une pièce pour un avion donné \n4 : Afficher un avion avec les infos détaillées de chaque pièces \n5 : Quitter l'application");
-		//Boolean start = true;
-
 		Scanner menuChoiceScanner = new Scanner(System.in);
-		
-		//while(start) {
-			
-			//Boolean strgScanner = menuChoiceScanner.hasNextInt();
-			
-			int menuChoice = menuChoiceScanner.nextInt();
-			
-		
 
-		if (menuChoice == 1) {
-			airBusPlaneArray(AirBusPlane);
-			//System.out.println("Boolean = " + strgScanner);
-			
+		System.out.println(Constant.GREEN
+				+ "Bienvenue dans l'application de gestion du cycle de vie d'avions AIRBUS \nFaite votre choix dans le menu, saisissez le chiffre correspondant\n"
+				+ Constant.BLACK);
 
-		} else if (menuChoice != 1) {
-			System.out.print("fals = ");
-			
-		}
+		Boolean start = true;
+		String ViewAllAircraft = "1";
+		String aircraftKey = "2";
 
-		menuChoiceScanner.close();
-		}
-	//}
+		while (start) {
 
-	/**
-	 * La methode liste les tableaux a 2 dimensions. The method lists 2 dimensional
-	 * tables.
-	 * 
-	 * @param airBusPlane
-	 */
+			System.out.println(Constant.BLACK
+					+ "1 : Afficher tous les avions \n2 : Afficher tous les avions contenant un mot clé dans le programme \n3 : Ajouter ou supprimer une pièce pour un avion donné \n4 : Afficher un avion avec les infos détaillées de chaque pièces \n5: Quitter l'application "
+					+ Constant.YELLOW + "OU Saisissez stop, puis entrez.\n");
 
-	public static void airBusPlaneArray(HashMap<java.lang.Integer, String[]> airBusPlane) {
+			Boolean strgScanner = menuChoiceScanner.hasNextInt();
 
-		String[] takeValuesArray;
-		String returnArrayValues = "";
-		Object[] keys = airBusPlane.keySet().toArray();
+			String menuChoice = menuChoiceScanner.next();
+			System.out.println();
 
-		for (int i = 1; i < airBusPlane.size() + 1; i++) {
+			start = Methode.getOut(menuChoice);
 
-			takeValuesArray = airBusPlane.get(i);
+			if (ViewAllAircraft.equals(menuChoice)) {
+				Methode.airBusPlaneArray(AirBusPlane, "null");
+				System.out.println();
 
-			for (int j = 0; j < airBusPlane.get(i).length; j++) {
+			} else if (aircraftKey.equals(menuChoice)) {
+				System.out.println("Veuillez saisir un mot clé !");
 
-				returnArrayValues += " " + takeValuesArray[j];
+				String aircraftKeyScanner = menuChoiceScanner.next();
 
+				System.out.println();
+
+				Methode.airBusPlaneArray(AirBusPlane, aircraftKeyScanner.toUpperCase());
+
+				System.out.println();
+
+			} else if (!strgScanner) {
+				System.out.println(start ? "Veuillez saisir un chiffre, s'il vous plaît ! \n" : "");
+
+			} else if (Integer.parseInt(menuChoice) > 5) {
+				System.out.println("Veuillez saisir un nombre entre 1 et 5 ! \n");
 			}
 
-			System.out.println("ID " + keys[i - 1] + " = " + returnArrayValues + " ");
-
-			returnArrayValues = "";
-
 		}
-
-	}
-
-	/**
-	 * 
-	 * @param airBusPlane
-	 * @return
-	 */
-	public static String airBusPlaneModels(HashMap<java.lang.Integer, String[]> airBusPlane) {
-
-		String[] value = null;
-
-		for (int i = 1; i < airBusPlane.size(); i++) {
-
-			value = airBusPlane.get(i);
-
-		}
-
-		return value[0];
-	}
-
-	/**
-	 * 
-	 * @param airBusPlane
-	 */
-
-	public static void airBusPlaneStatus(HashMap<java.lang.Integer, String[]> airBusPlane) {
-
-		String[] value = null;
-
-		for (int i = 1; i < airBusPlane.size(); i++) {
-
-			value = airBusPlane.get(i);
-
-			System.out.println("value = " + value[1]);
-		}
-	}
-
-	/**
-	 * 
-	 * @param airBusPlane
-	 */
-	public static void airBusPlaneType(HashMap<java.lang.Integer, String[]> airBusPlane) {
-
-		String[] value = null;
-
-		for (int i = 1; i < airBusPlane.size(); i++) {
-
-			value = airBusPlane.get(i);
-
-			System.out.println("value = " + value[2]);
-		}
-
+		menuChoiceScanner.close();
 	}
 
 }
